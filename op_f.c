@@ -52,4 +52,15 @@ int op_s(va_list form)
 	return (counter);
 
 }
+/**
+ * op_i - print numbers
+ * @form: input
+ * Return: counter
+ */
+int op_i(va_list form)
+{
+	int ch, counter = 1;
 
+	ch = va_arg(form, int);
+	counter = print_int(ch, counter);
+}
