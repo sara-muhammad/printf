@@ -18,11 +18,13 @@ int op_c(va_list form)
 
 /**
  * op_p - Print percentage sign.
+ * @form: name va_list
  * Return: No.of printed bytes.
  */
 
-int op_p(void)
+int op_p(va_list form)
 {
+	(void)form;
 	int counter = 0;
 
 	_putchar('%');
