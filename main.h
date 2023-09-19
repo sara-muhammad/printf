@@ -5,10 +5,17 @@
 #include <stdio.h>
 #include <unistd.h>
 
+/**
+ * struct format - structure
+ * @op: character pointer
+ * @f: pointer to function
+ * Description : it contains data of arguments
+ */
+
 typedef struct format
 {
 	char *op;
-	int(*f)(va_list ptr);
+	int (*f)(va_list ptr);
 } specifier;
 
 int op_p(void);

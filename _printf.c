@@ -12,7 +12,11 @@ int _printf(const char *format, ...)
 	va_list ptr;
 	unsigned int j, sum = 0;
 	char *p;
-	specifier ops[] = {{"c", op_c}, {"s", op_s}, {"d", op_i}, {"i", op_i}};
+	specifier ops[] = {{"c", op_c},
+		{"s", op_s},
+		{"d", op_i},
+		{"i", op_i},
+		{"%", op_p}};
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
@@ -24,9 +28,7 @@ int _printf(const char *format, ...)
 		if (*p == '%')
 		{
 			p++;
-			if (*p == '%')
-				sum += op_p();
-			for (j = 0; j < 4; j++)
+			for (j = 0; j < 5; j++)
 			{
 				if (ops[j].op[0] == *p)
 				{
