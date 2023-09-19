@@ -17,5 +17,5 @@ int print_int(int n, int counter)
 		counter =  print_int(n / 10, ++counter);
 	putchar((n % 10) + '0');
 	return (counter);
-	}
+}
 
