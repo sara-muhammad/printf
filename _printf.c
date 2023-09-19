@@ -9,7 +9,6 @@
 
 int _printf(const char *format, ...)
 {
-
 	va_list ptr;
 	unsigned int j, sum = 0;
 	char *p;
