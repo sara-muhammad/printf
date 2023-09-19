@@ -18,10 +18,12 @@ typedef struct format
 	int (*f)(va_list ptr);
 } specifier;
 
-int op_p(void);
+int op_p(va_list form);
 int op_c(va_list form);
 int op_s(va_list form);
+int op_i(va_list form);
 int _printf(const char *format, ...);
 int _putchar(char c);
+int print_int(int n, int counter);
 
 #endif

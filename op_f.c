@@ -24,8 +24,8 @@ int op_c(va_list form)
 
 int op_p(va_list form)
 {
-	(void)form;
 	int counter = 0;
+	(void)form;
 
 	_putchar('%');
 	return (counter++);
@@ -65,4 +65,5 @@ int op_i(va_list form)
 
 	ch = va_arg(form, int);
 	counter = print_int(ch, counter);
+	return (counter);
 }

@@ -9,7 +9,7 @@ int print_int(int n, int counter)
 {
 	if (n < 0)
 	{
-		_i  putchar('-');
+		putchar('-');
 		n = -n;
 		counter++;
 	}

@@ -16,7 +16,8 @@ int _printf(const char *format, ...)
 		{"s", op_s},
 		{"d", op_i},
 		{"i", op_i},
-		{"%", op_p}};
+		{"%", op_p},
+		};
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
@@ -39,8 +40,12 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(*p);
-			sum++;
+			while (*p)
+			{
+				_putchar(*p);
+				p++;
+				sum++;
+			}
 		}
 	}
 	va_end(ptr);
