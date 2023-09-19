@@ -19,6 +19,7 @@ int op_c(va_list form)
 /**
  * op_p - Print percentage sign.
  * @form: name va_list
+ *
  * Return: No.of printed bytes.
  */
 
@@ -38,7 +39,6 @@ int op_p(va_list form)
  *
  * Return: no.of printed bytes.
  */
-
 int op_s(va_list form)
 {
 	char *str;
@@ -52,7 +52,6 @@ int op_s(va_list form)
 		counter++;
 	}
 	return (counter);
-
 }
 /**
  * op_i - print numbers
