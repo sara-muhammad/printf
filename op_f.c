@@ -65,4 +65,5 @@ int op_i(va_list form)
 
 	ch = va_arg(form, int);
 	counter = print_int(ch, counter);
+	return (counter);
 }
