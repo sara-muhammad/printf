@@ -10,41 +10,34 @@
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	unsigned int j, sum = 0;
-	char *p;
-	specifier ops[] = { {"c", op_c},
-		{"s", op_s},
-		{"d", op_i},
-		{"i", op_i},
-		{"%", op_p},
-	};
+	unsigned int sum = 0, i = 0, j;
+	specifier ops[] = {
+		{"%c",op_c}, 
+		{"%%",op_p},
+		{"%s",op_s},
+		{"%d",op_i},
+		{"%i",op_i},
+		};
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-	va_start(ptr, format);
-	for (p = (char *)format; *p; p++)
+	va_start(ptr,format);
+	while(format[i])
 	{
-		if (*p == '%')
+		for (j = 0; j < 5; j++)
 		{
-			p++;
-			for (j = 0; j < 5; j++)
+			if (format[i] == ops[j].op[0] && format[i+1] == ops[j+1].op[1])
 			{
-				if (ops[j].op[0] == *p)
-				{
-					sum += ops[j].f(ptr);
-					break;
-				}
+				sum += ops[j].f(ptr);
+				i += 2;
 			}
 		}
-		else
+		while (format[i])
 		{
-			while (*p)
-			{
-				_putchar(*p);
-				p++;
-				sum++;
-			}
-		}
+			_putchar(format[i]);
+			i++;
+			sum++;
+		}	
 	}
 	va_end(ptr);
 	return (sum);
