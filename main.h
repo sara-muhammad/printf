@@ -25,5 +25,6 @@ int op_p(va_list form);
 int op_c(va_list form);
 int op_s(va_list form);
 int op_i(va_list form);
+int no_op(char format);
 int print_int(int n, int counter);
 #endif

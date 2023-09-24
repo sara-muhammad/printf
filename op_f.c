@@ -67,3 +67,9 @@ int op_i(va_list form)
 	counter = print_int(ch, counter);
 	return (counter);
 }
+int no_op(char format)
+{
+	_putchar('%');
+	_putchar(format);
+	return (2);
+}

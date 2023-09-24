@@ -7,13 +7,12 @@
  * Return: no.of printed bytes.
  */
 
-
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	unsigned int sum = 0, j;
+	int sum = 0, i = 0, j, rsum = 0;
 	specifier ops[] = {
-		{'c', op_c}, 
+		{'c', op_c},
 		{'%', op_p},
 		{'s', op_s},
 		{'d', op_i},
@@ -23,30 +22,30 @@ int _printf(const char *format, ...)
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-	va_start(ptr,format);
-	while(*format)
+	va_start(ptr, format);
+	while (format[i])
 	{
-
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			format++;
-			for(j = 0; j <5; j++)
+			for (j = 0; j < 5; j++)
 			{
-				if (*format == ops[j].op)
+				if (format[i + 1] == ops[j].op)
 				{
-					sum += ops[j].f(ptr);
-				}
-			}
-		format++;
-		}
+					rsum += ops[j].f(ptr);
+					if (sum == -1)
+					return (-1);
+					else
+						sum += rsum;
+					break; } }
+			if (ops[j].op != format[i + 1])
+				sum += no_op(format[i + 1]);
+			i += 2; }
 		else
 		{
-		_putchar(*format);
-		format++;
-		sum++;
-		}
-	}
+			_putchar(format[i]);
+			i++;
+			sum++; } }
 	va_end(ptr);
-	return (sum);
+	return (sum); 
 }
 
