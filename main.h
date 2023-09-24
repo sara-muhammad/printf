@@ -1,10 +1,10 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
-
+#include <stdlib.h>
 
 /**
  * struct format - structure
@@ -15,7 +15,7 @@
 
 typedef struct format
 {
-	char *op;
+	char op;
 	int (*f)(va_list ptr);
 } specifier;
 
@@ -26,5 +26,4 @@ int op_c(va_list form);
 int op_s(va_list form);
 int op_i(va_list form);
 int print_int(int n, int counter);
-
 #endif
